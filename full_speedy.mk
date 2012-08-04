@@ -135,5 +135,10 @@ $(call inherit-product, device/htc/speedy/media_htcaudio.mk)
 
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 
+# init.d scripts
+PRODUCT_COPY_FILES += \
+    device/htc/speedy/prebuilt/system/bin/sysinit:system/bin/sysinit \
+    device/htc/speedy/prebuilt/system/etc/init.d/01zram:system/etc/init.d/01zram
+
 PRODUCT_NAME := htc_speedy
 PRODUCT_DEVICE := speedy
