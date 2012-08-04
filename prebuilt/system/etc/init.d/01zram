@@ -22,7 +22,7 @@ then
     # Activate zram
     busybox modprobe zram num_devices=4;
     busybox echo 1 > /sys/block/zram0/reset;
-    busybox echo $((250*1024*1024)) > /sys/block/zram0/disksize;
+    busybox echo $((128*1024*1024)) > /sys/block/zram0/disksize;
     busybox mkswap /dev/block/zram0;
     busybox swapon /dev/block/zram0;
 else
