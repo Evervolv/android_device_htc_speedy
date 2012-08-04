@@ -116,15 +116,11 @@ PRODUCT_COPY_FILES += \
 
 PRODUCT_COPY_FILES += \
     device/htc/speedy/prebuilt/system/lib/modules/bcm4329.ko:system/lib/modules/bcm4329.ko \
+    device/htc/speedy/prebuilt/system/lib/modules/lzo_compress.ko:system/lib/modules/lzo_compress.ko \
+    device/htc/speedy/prebuilt/system/lib/modules/lzo_decompress.ko:system/lib/modules/lzo_decompress.ko \
     device/htc/speedy/prebuilt/system/lib/modules/sequans_sdio.ko:system/lib/modules/sequans_sdio.ko \
-    device/htc/speedy/prebuilt/system/lib/modules/auth_rpcgss.ko:system/lib/modules/auth_rpcgss.ko \
-    device/htc/speedy/prebuilt/system/lib/modules/cifs.ko:system/lib/modules/cifs.ko \
-    device/htc/speedy/prebuilt/system/lib/modules/lockd.ko:system/lib/modules/lockd.ko \
-    device/htc/speedy/prebuilt/system/lib/modules/nfs.ko:system/lib/modules/nfs.ko \
-    device/htc/speedy/prebuilt/system/lib/modules/rpcsec_gss_krb5.ko:system/lib/modules/rpcsec_gss_krb5.ko \
-    device/htc/speedy/prebuilt/system/lib/modules/sunrpc.ko:system/lib/modules/sunrpc.ko \
-    device/htc/speedy/prebuilt/system/lib/modules/wimaxdbg.ko:system/lib/modules/wimaxdbg.ko \
-    device/htc/speedy/prebuilt/system/lib/modules/wimaxuart.ko:system/lib/modules/wimaxuart.ko
+    device/htc/speedy/prebuilt/system/lib/modules/wimax.ko:system/lib/modules/wimax.ko \
+    device/htc/speedy/prebuilt/system/lib/modules/zram.ko:system/lib/modules/zram.ko
 
 PRODUCT_COPY_FILES += \
     device/htc/speedy/prebuilt/system/lib/libcryp98.so:system/lib/libcryp98.so
@@ -138,6 +134,10 @@ $(call inherit-product, device/htc/speedy/media_a1026.mk)
 $(call inherit-product, device/htc/speedy/media_htcaudio.mk)
 
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
+
+# init.d scripts
+PRODUCT_COPY_FILES += \
+    device/htc/speedy/prebuilt/system/etc/init.d/01zram:system/etc/init.d/01zram
 
 PRODUCT_NAME := htc_speedy
 PRODUCT_DEVICE := speedy
