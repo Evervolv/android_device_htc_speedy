@@ -1,7 +1,7 @@
 [
  {
-    "repository": "htc-kernel-msm7x30",
+    "repository": "android_kernel_htc_msm7x30",
     "target_path": "kernel/htc/msm7x30",
-    "branch": "android-msm-2.6.35-ics"
+    "branch": "jellybean"
  }
 ]

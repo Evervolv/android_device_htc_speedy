@@ -43,7 +43,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 DEVICE_PACKAGE_OVERLAYS += device/htc/speedy/overlay
 
 PRODUCT_COPY_FILES += \
-    frameworks/base/data/etc/android.hardware.telephony.cdma.xml:system/etc/permissions/android.hardware.telephony.cdma.xml
+    frameworks/native/data/etc/android.hardware.telephony.cdma.xml:system/etc/permissions/android.hardware.telephony.cdma.xml
 
 # CameraHal
 #PRODUCT_PACKAGES += \
@@ -68,12 +68,9 @@ PRODUCT_COPY_FILES += \
 
 # Keylayouts
 PRODUCT_COPY_FILES += \
-    device/htc/speedy/prebuilt/system/usr/keychars/qwerty2.kcm.bin:system/usr/keychars/qwerty2.kcm.bin \
-    device/htc/speedy/prebuilt/system/usr/keychars/qwerty.kcm.bin:system/usr/keychars/qwerty.kcm.bin \
-    device/htc/speedy/prebuilt/system/usr/keychars/speedy-keypad.kcm.bin:system/usr/keychars/speedy-keypad.kcm.bin \
+    device/htc/speedy/prebuilt/system/usr/keychars/speedy-keypad.kcm:system/usr/keychars/speedy-keypad.kcm \
     device/htc/speedy/prebuilt/system/usr/keylayout/h2w_headset.kl:system/usr/keylayout/h2w_headset.kl\
-    device/htc/speedy/prebuilt/system/usr/keylayout/AVRCP.kl:system/usr/keylayout/AVRCP.kl \
-    device/htc/speedy/prebuilt/system/usr/keylayout/qwerty.kl:system/usr/keylayout/qwerty.kl
+    device/htc/speedy/prebuilt/system/usr/keylayout/AVRCP.kl:system/usr/keylayout/AVRCP.kl
 
 # Firmware
 PRODUCT_COPY_FILES += \
@@ -81,9 +78,7 @@ PRODUCT_COPY_FILES += \
     device/htc/speedy/prebuilt/vendor/firmware/BCM4329B1_002.002.023.0511.0538.hcd:system/etc/firmware/BCM4329B1_002.002.023.0511.0538.hcd \
     device/htc/speedy/prebuilt/vendor/firmware/default.acdb:system/etc/firmware/default.acdb \
     device/htc/speedy/prebuilt/vendor/firmware/default_mfg.acdb:system/etc/firmware/default_mfg.acdb \
-    device/htc/speedy/prebuilt/vendor/firmware/default_org.acdb:system/etc/firmware/default_org.acdb \
-    device/htc/speedy/prebuilt/vendor/firmware/fw_bcm4329.bin:system/vendor/firmware/fw_bcm4329.bin \
-    device/htc/speedy/prebuilt/vendor/firmware/fw_bcm4329_apsta.bin:system/vendor/firmware/fw_bcm4329_apsta.bin \
+    device/htc/speedy/prebuilt/vendor/firmware/default_org.acdb:system/etc/firmware/default_org.acdb
 
 # OMX Config Profiles
 PRODUCT_COPY_FILES += \
@@ -136,9 +131,6 @@ $(call inherit-product, device/htc/speedy/media_a1026.mk)
 
 # htc audio settings
 $(call inherit-product, device/htc/speedy/media_htcaudio.mk)
-
-# stuff common to all HTC phones
-$(call inherit-product, device/htc/common/common.mk)
 
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 
