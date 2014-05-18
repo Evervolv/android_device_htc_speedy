@@ -21,18 +21,8 @@ $(call inherit-product, device/htc/msm7x30-common/msm7x30.mk)
 PRODUCT_COPY_FILES += \
     device/htc/speedy/prebuilt/system/etc/gps.conf:system/etc/gps.conf
 
-## (1) First, the most specific values, i.e. the aspects that are specific to GSM
-
-PRODUCT_COPY_FILES += \
-    device/htc/speedy/prebuilt/root/init.speedy.rc:root/init.speedy.rc \
-    device/htc/speedy/prebuilt/root/fstab.speedy:root/fstab.speedy \
-    device/htc/speedy/prebuilt/root/init.speedy.usb.rc:root/init.speedy.usb.rc \
-    device/htc/speedy/prebuilt/root/ueventd.speedy.rc:root/ueventd.speedy.rc
-
-## (2) Also get non-open-source GSM-specific aspects if available
 $(call inherit-product-if-exists, vendor/htc/speedy/speedy-vendor.mk)
 
-## (3)  Finally, the least specific parts, i.e. the non-GSM-specific aspects
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.com.google.clientidbase=android-sprint-us \
     ro.cdma.home.operator.numeric=310120 \

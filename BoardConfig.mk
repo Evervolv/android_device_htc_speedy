@@ -33,8 +33,6 @@ USE_CAMERA_STUB := true
 
 TARGET_BOOTLOADER_BOARD_NAME := speedy
 
-TARGET_RECOVERY_FSTAB = device/htc/speedy/prebuilt/root/fstab.speedy
-
 BOARD_KERNEL_CMDLINE := no_console_suspend=1
 BOARD_KERNEL_BASE := 0x4000000
 BOARD_KERNEL_PAGE_SIZE := 4096
@@ -56,5 +54,22 @@ BOARD_FLASH_BLOCK_SIZE := 262144
 BOARD_SDCARD_DEVICE_PRIMARY := /dev/block/mmcblk1p1
 BOARD_SDCARD_DEVICE_SECONDARY := /dev/block/mmcblk1
 BOARD_SDEXT_DEVICE := /dev/block/mmcblk1p2
-BOARD_USES_MMCUTILS := true
-BOARD_HAS_NO_SELECT_BUTTON := 1
+
+#TWRP / Recovery specific defines
+DEVICE_RESOLUTION := 480x800
+RECOVERY_FSTAB_VERSION := 2
+
+#Not sure why this is needed with twrp. Other devices I've looked at, don't have separate fstab's.
+ifeq ($(RECOVERY_BUILD),)
+    TARGET_RECOVERY_FSTAB = device/htc/speedy/ramdisk/etc/fstab.speedy
+else
+    TARGET_RECOVERY_FSTAB = device/htc/speedy/recovery/recovery.fstab
+endif
+
+TARGET_RECOVERY_INITRC := device/htc/speedy/recovery/init.rc
+TW_NO_SCREEN_BLANK := true
+#HAVE_SELINUX := true
+TW_BRIGHTNESS_PATH := "/sys/class/leds/lcd-backlight/brightness"
+#TW_INCLUDE_DUMLOCK := true
+BOARD_HAS_NO_SELECT_BUTTON := true
+BOARD_USE_CUSTOM_RECOVERY_FONT := \"roboto_15x24.h\"

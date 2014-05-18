@@ -8,7 +8,7 @@ on property:sys.usb.config=none
 
 on property:sys.usb.config=adb
     start adbd
-    write /sys/devices/platform/android_usb/usb_function_switch 2 
+    write /sys/devices/platform/android_usb/usb_function_switch 2
     setprop sys.usb.state ${sys.usb.config}
 
 on property:sys.usb.config=mass_storage,adb
